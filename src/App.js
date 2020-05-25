@@ -1,6 +1,9 @@
 import React from "react";
+import {BrowserRouter, Route, Switch} from "react-router-dom"
+
+/* components */
 import "./App.scss";
-import Home from "./components/Home";
+import Home from "./View/Home";
 
 class App extends React.Component {
   constructor(props) {
@@ -12,13 +15,17 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div className="App">
-        <main className="main">
-          <div className="container">
-            <Home />
+      <BrowserRouter>
+        <Switch>
+          <div className="App">
+            <main className="main">
+              <Route exact path="/">
+                <Home />
+              </Route>
+            </main>
           </div>
-        </main>
-      </div>
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
