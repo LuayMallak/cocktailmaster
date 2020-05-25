@@ -66,3 +66,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+For Next Time
+In Search case, we save in Home Js state search by what and search text, and we pass those twp exact things when we click search-button we take these two things as props to a new component called search-results which render more than one drink.
+in this Search-result component in componentDidMount we do the fetch, and then render!
+in a new component called OneDrink; we only take the id and we fetch by id, and we call it in two cases; either when we click get random cocktail, we only get the random ID of the cocktail or in case we are on search result and chose a specific cocktail to see all its data. in both cases we only take the id of the drink.

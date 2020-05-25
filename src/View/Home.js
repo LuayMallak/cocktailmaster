@@ -1,5 +1,4 @@
 import React from "react";
-import Random from "./Random";
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -8,6 +7,7 @@ class Home extends React.Component {
       searchBy: "s",
       inputText: "",
     };
+    this.getData = this.getData.bind(this)
   }
 
   getData() {
@@ -16,7 +16,7 @@ class Home extends React.Component {
     )
       .then((res) => res.json())
       .then((drinks) =>
-        this.setState({ drinks: drinks.drinks }, console.log(drinks))
+        this.setState({ drinks: drinks.drinks })
       )
       .catch((err) => {
         console.log(err);
@@ -31,6 +31,7 @@ class Home extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <div className="container">
         <div className="header">
           <h1>Cocktail Master</h1>
           <h3>Search for a cocktail by name, ingredient or first letter</h3>
@@ -61,8 +62,9 @@ class Home extends React.Component {
             onChange={(evt) => this.setState({ inputText: evt.target.value })}
             className="textInput"
           />
-          <button className="searchBTN">Search</button>
-          <Random />
+          <button onClick={this.getData} className="searchBTN">Search</button>
+          <button className="randomBTN ">Get Random Cocktail</button>
+        </div>
         </div>
       </React.Fragment>
     );
