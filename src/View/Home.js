@@ -36,48 +36,15 @@ class Home extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="container">
-          <div className="header">
-            <h1>Cocktail Master</h1>
-            <h3 className="searchDescription">
-              Search for a cocktail by name, ingredient or first letter
-            </h3>
-          </div>
-          <div className="searchSection">
-            <div className="searchButtons">
-              <p
-                onClick={() => this.setState({ searchBy: "s" })}
-                className="nameBTN BTN"
-                title="search by cocktail name"
-              >
-                <FontAwesomeIcon icon={faCocktail} />
-              </p>
-              <p
-                onClick={() => this.setState({ searchBy: "f" })}
-                className="letterBTN BTN"
-              >
-                <FontAwesomeIcon icon={faFont} />
-              </p>
-              <p
-                onClick={() => this.setState({ searchBy: "i" })}
-                className="ingredientsBTN BTN"
-              >
-                <FontAwesomeIcon icon={faWineBottle} />
-              </p>
+        <div className="homeContainer">
+          <div className="container">
+            <div className="header">
+              <h1>Cocktail Master</h1>
+              <h3 className="searchDescription">
+                Search for a cocktail by name, ingredient or first letter
+              </h3>
             </div>
-            <div className="searchFieldContainer">
-              <input
-                type="text"
-                onChange={(evt) =>
-                  this.setState({ inputText: evt.target.value })
-                }
-                className="textInput"
-              />
-              <button onClick={this.getData} className="searchBTN">
-                Search
-              </button>
-            </div>
-            <button className="randomBTN ">Get Random Cocktail</button>
+            
           </div>
         </div>
       </React.Fragment>
