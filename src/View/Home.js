@@ -1,4 +1,11 @@
 import React from "react";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCocktail,
+  faFont,
+  faWineBottle,
+} from "@fortawesome/free-solid-svg-icons";
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -7,7 +14,7 @@ class Home extends React.Component {
       searchBy: "s",
       inputText: "",
     };
-    this.getData = this.getData.bind(this)
+    this.getData = this.getData.bind(this);
   }
 
   getData() {
@@ -15,9 +22,7 @@ class Home extends React.Component {
       `https://www.thecocktaildb.com/api/json/v1/1/search.php?${this.state.searchBy}=${this.state.inputText}`
     )
       .then((res) => res.json())
-      .then((drinks) =>
-        this.setState({ drinks: drinks.drinks })
-      )
+      .then((drinks) => this.setState({ drinks: drinks.drinks }))
       .catch((err) => {
         console.log(err);
       });
@@ -32,39 +37,48 @@ class Home extends React.Component {
     return (
       <React.Fragment>
         <div className="container">
-        <div className="header">
-          <h1>Cocktail Master</h1>
-          <h3>Search for a cocktail by name, ingredient or first letter</h3>
-        </div>
-        <div className="searchSection">
-          <div className="searchButtons">
-            <button
-              onClick={() => this.setState({ searchBy: "s" })}
-              className="nameBTN BTN"
-            >
-              Name
-            </button>
-            <button
-              onClick={() => this.setState({ searchBy: "f" })}
-              className="letterBTN BTN"
-            >
-              First Letter
-            </button>
-            <button
-              onClick={() => this.setState({ searchBy: "i" })}
-              className="ingredientsBTN BTN"
-            >
-              Ingredients
-            </button>
+          <div className="header">
+            <h1>Cocktail Master</h1>
+            <h3 className="searchDescription">
+              Search for a cocktail by name, ingredient or first letter
+            </h3>
           </div>
-          <input
-            type="text"
-            onChange={(evt) => this.setState({ inputText: evt.target.value })}
-            className="textInput"
-          />
-          <button onClick={this.getData} className="searchBTN">Search</button>
-          <button className="randomBTN ">Get Random Cocktail</button>
-        </div>
+          <div className="searchSection">
+            <div className="searchButtons">
+              <p
+                onClick={() => this.setState({ searchBy: "s" })}
+                className="nameBTN BTN"
+                title="search by cocktail name"
+              >
+                <FontAwesomeIcon icon={faCocktail} />
+              </p>
+              <p
+                onClick={() => this.setState({ searchBy: "f" })}
+                className="letterBTN BTN"
+              >
+                <FontAwesomeIcon icon={faFont} />
+              </p>
+              <p
+                onClick={() => this.setState({ searchBy: "i" })}
+                className="ingredientsBTN BTN"
+              >
+                <FontAwesomeIcon icon={faWineBottle} />
+              </p>
+            </div>
+            <div className="searchFieldContainer">
+              <input
+                type="text"
+                onChange={(evt) =>
+                  this.setState({ inputText: evt.target.value })
+                }
+                className="textInput"
+              />
+              <button onClick={this.getData} className="searchBTN">
+                Search
+              </button>
+            </div>
+            <button className="randomBTN ">Get Random Cocktail</button>
+          </div>
         </div>
       </React.Fragment>
     );
