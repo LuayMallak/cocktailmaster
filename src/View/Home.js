@@ -1,11 +1,5 @@
 import React from "react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCocktail,
-  faFont,
-  faWineBottle,
-} from "@fortawesome/free-solid-svg-icons";
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -14,25 +8,9 @@ class Home extends React.Component {
       searchBy: "s",
       inputText: "",
     };
-    this.getData = this.getData.bind(this);
+    //this.getDataList = this.getData.bind(this);
   }
 
-  getData() {
-    let drinks = fetch(
-      `https://www.thecocktaildb.com/api/json/v1/1/search.php?${this.state.searchBy}=${this.state.inputText}`
-    )
-      .then((res) => res.json())
-      .then((drinks) => this.setState({ drinks: drinks.drinks }))
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  componentDidMount() {
-    this.getData();
-  }
-
-  componentDidUpdate() {}
   render() {
     return (
       <React.Fragment>
@@ -44,7 +22,6 @@ class Home extends React.Component {
                 Search for a cocktail by name, ingredient or first letter
               </h3>
             </div>
-            
           </div>
         </div>
       </React.Fragment>

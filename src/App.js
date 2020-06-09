@@ -1,36 +1,48 @@
 import React from "react";
-import {BrowserRouter, Route, Switch} from "react-router-dom"
-import SearchResult from "./View/SearchResult"
-import SearchComponent from './components/SearchComponent'
+import SearchComponent from "./components/SearchComponent";
+import Navigation from "./navigation";
 
 /* components */
 import "./App.scss";
-import Home from "./View/Home";
+
+import { getDataList } from "./utils/functions";
 
 class App extends React.Component {
-  /* constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
-      searchBy: "s",
-      inputText: "",
-    }; */
+      homeRoute: false,
+      drinks: [],
+    };
+    this.toggleHomeRoute = this.toggleHomeRoute.bind(this);
+    this.saveAPIData = this.saveAPIData.bind(this);
+  }
+  toggleHomeRoute() {
+    this.setState({ homeRoute: !this.state.homeRoute });
+  }
+  saveAPIData(searchBy, InputText) {
+    getDataList(searchBy, InputText)
+      .then((drinks) => this.setState({ drinks: drinks }))
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  componentDidMount() {
+    getDataList(this.state.searchBy, this.state.inputText)
+      .then((drinks) => this.setState({ drinks: drinks.drinks }))
+      .catch((err) => {
+        console.log(err);
+      });
+  }
   render() {
     return (
-      <BrowserRouter>
-        <Switch>
-          <React.Fragment>
-            <div className="App">
-              <SearchComponent />              
-                <Route exact path="/">
-                  <Home />
-                </Route>
-                <Route exact path="/search-result">
-                  <SearchResult/>
-                </Route>
-            </div>
-          </React.Fragment>
-        </Switch>
-      </BrowserRouter>
+      <div className="App">
+        <SearchComponent
+          saveAPIData={this.saveAPIData}
+          toggleHomeRoute={this.toggleHomeRoute}
+        />
+        <Navigation />
+      </div>
     );
   }
 }
