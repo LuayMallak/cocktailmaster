@@ -1,7 +1,9 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
+
 import Grid from "@material-ui/core/Grid";
+
+import { Drink } from "./Card";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -9,15 +11,10 @@ const useStyles = makeStyles((theme) => ({
     margin: "auto",
     marginTop: "10vh",
     backgroundColor: " rgba(255, 255, 255, 0.95)",
-
-    height: " 100vh",
+    minHeight: " 100vh",
     paddingTop: "50px",
     borderRadius: "5px",
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
+    flexDirection: "row",
   },
 }));
 
@@ -26,8 +23,10 @@ function SearchResult(props) {
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
+        <Grid item xs={12} sm={12}>
+          {props.state.drinks.map((drink, index) => (
+            <Drink key={index} drink={drink} />
+          ))}
         </Grid>
       </Grid>
     </div>

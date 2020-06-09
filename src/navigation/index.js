@@ -1,20 +1,20 @@
 import React from "react";
 import routes from "./routes";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-function Navigation() {
+import { Route, Switch } from "react-router-dom";
+
+function Navigation(props) {
   return (
-    <BrowserRouter>
-      <Switch>
-        {routes.map((route, index) => (
-          <Route
-            key={index}
-            path={route.path}
-            exact={route.exact}
-            component={route.component}
-          />
-        ))}
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      {routes.map((route, index) => (
+        <Route
+          key={index}
+          path={route.path}
+          exact={route.exact}
+          render={route.render.bind(this, props)}
+          ownProps={props}
+        />
+      ))}
+    </Switch>
   );
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export class SearchComponent extends Component {
   constructor(props) {
@@ -42,7 +42,10 @@ export class SearchComponent extends Component {
               this.props.saveAPIData(this.state.searchBy, this.state.inputText);
             }}
           >
-            Search
+            {" "}
+            <NavLink exact to="/search-result">
+              Search
+            </NavLink>
           </button>
         </div>
       </div>

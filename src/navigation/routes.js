@@ -1,21 +1,17 @@
 import SearchResult from "../View/SearchResult";
 import Home from "../View/Home";
+import React from "react";
 
 const routes = [
   {
     path: "/",
     exact: true,
-    component: Home,
+    render: (state) => <Home {...state} />,
   },
   {
     path: "/search-result",
     exact: true,
-    component: SearchResult,
-  } /* ,
-  {
-    path: "/cocktail/:id",
-    exact: true,
-    component: Cocktail,
-  }, */,
+    render: (state) => <SearchResult {...state} />,
+  },
 ];
 export default routes;

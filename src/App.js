@@ -1,7 +1,7 @@
 import React from "react";
 import SearchComponent from "./components/SearchComponent";
 import Navigation from "./navigation";
-
+import { BrowserRouter, Route } from "react-router-dom";
 /* components */
 import "./App.scss";
 
@@ -13,6 +13,9 @@ class App extends React.Component {
     this.state = {
       homeRoute: false,
       drinks: [],
+      singleDrink: {},
+      searchBy: "s",
+      inputText: "margarita",
     };
     this.toggleHomeRoute = this.toggleHomeRoute.bind(this);
     this.saveAPIData = this.saveAPIData.bind(this);
@@ -20,28 +23,27 @@ class App extends React.Component {
   toggleHomeRoute() {
     this.setState({ homeRoute: !this.state.homeRoute });
   }
-  saveAPIData(searchBy, InputText) {
-    getDataList(searchBy, InputText)
-      .then((drinks) => this.setState({ drinks: drinks }))
-      .catch((err) => {
-        console.log(err);
-      });
+  async saveAPIData(searchBy, InputText) {
+    try {
+      const drinks = await getDataList(searchBy, InputText);
+      this.setState({ drinks: drinks.drinks });
+    } catch (err) {
+      console.log(err);
+    }
   }
-  componentDidMount() {
-    getDataList(this.state.searchBy, this.state.inputText)
-      .then((drinks) => this.setState({ drinks: drinks.drinks }))
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+  async componentDidMount() {}
   render() {
     return (
       <div className="App">
-        <SearchComponent
-          saveAPIData={this.saveAPIData}
-          toggleHomeRoute={this.toggleHomeRoute}
-        />
-        <Navigation />
+        <BrowserRouter>
+          <Route path="/">
+            <SearchComponent
+              saveAPIData={this.saveAPIData}
+              toggleHomeRoute={this.toggleHomeRoute}
+            />
+          </Route>
+          <Navigation state={this.state} />
+        </BrowserRouter>
       </div>
     );
   }
