@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export class SearchComponent extends Component {
   constructor(props) {
@@ -19,7 +19,23 @@ export class SearchComponent extends Component {
             : "searchSection sOnly"
         }
       >
-        <button className="randomBTN ">Random Cocktail</button>
+        <button
+          className="randomBTN "
+          onClick={() => this.props.saveRandomDrink()}
+        >
+          <NavLink exact to="/favorite-list">
+            {" "}
+            Favorites
+          </NavLink>
+        </button>
+        <button
+          className="randomBTN "
+          onClick={() => this.props.saveRandomDrink()}
+        >
+          <NavLink exact to="/random-result">
+            Random Cocktail
+          </NavLink>
+        </button>
         <div className="searchFieldContainer">
           <select
             className="options"
@@ -38,11 +54,13 @@ export class SearchComponent extends Component {
           <button
             className="searchBTN"
             onClick={() => {
-              this.props.toggleHomeRoute();
               this.props.saveAPIData(this.state.searchBy, this.state.inputText);
             }}
           >
-            Search
+            {" "}
+            <NavLink exact to="/search-result">
+              Search
+            </NavLink>
           </button>
         </div>
       </div>

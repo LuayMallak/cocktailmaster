@@ -4,11 +4,11 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      drinks: [],
+      /*       drinks: [],
+      singleDrink:{},
       searchBy: "s",
-      inputText: "",
+      inputText: "", */
     };
-    //this.getDataList = this.getData.bind(this);
   }
 
   render() {
