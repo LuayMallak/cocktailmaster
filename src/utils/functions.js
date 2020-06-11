@@ -1,15 +1,56 @@
 export async function getDataList(searchBy, searchText) {
   try {
-    const response = await fetch(
-      `https://www.thecocktaildb.com/api/json/v1/1/search.php?${searchBy}=${searchText}`
-    );
-
-    const data = await response.json();
+    let data;
+    if (searchBy === "i") {
+      const response = await fetch(
+        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?${searchBy}=${searchText}`
+      );
+      data = await response.json();
+    } else {
+      const response = await fetch(
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?${searchBy}=${searchText}`
+      );
+      data = await response.json();
+    }
 
     return data;
   } catch (err) {
     console.log("err", err);
   }
+}
+export async function getRandomCocktail() {
+  try {
+    let data;
+
+    const response = await fetch(
+      `https://www.thecocktaildb.com/api/json/v1/1/random.php`
+    );
+    data = await response.json();
+
+    return data;
+  } catch (err) {
+    console.log("err", err);
+  }
+}
+export async function getDataByID(id) {
+  try {
+    const response = await fetch(
+      `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
+    );
+    const singleCocktail = await response.json();
+
+    return singleCocktail;
+  } catch (err) {
+    console.log("err", err);
+  }
+}
+
+export function clearFavorites() {
+  localStorage.removeItem("favoriteDrinks");
+  this.setState({ favorites: [] });
+}
+export function clearRandoms() {
+  this.setState({ randoms: [] });
 }
 
 export const ingredientsGenerator = (drink) => {
@@ -41,31 +82,12 @@ export const ingredientsGenerator = (drink) => {
   });
 
   return finalIngredientsArr;
-
-  /*  ingredientsArr.forEach(item => {
-      if (item !== null && item !== "") finalIngredientsArr.push(" " + item);
-    }) */
 };
 
-export const saveToFavorite = (drink) => {
-  let drinks = JSON.parse(localStorage.getItem("favoriteDrinks"));
-  let finalDrinks = [];
-  if (drinks) {
-    finalDrinks = [...drinks, drink];
+export const isInFavorite = (array = [], id) => {
+  if (!array) {
+    return false;
   } else {
-    finalDrinks = [drink];
+    return array.some((drink) => drink.idDrink === id);
   }
-
-  localStorage.setItem("favoriteDrinks", JSON.stringify(finalDrinks));
-};
-
-export const isInFavorite = (id) => {
-  let drinks = JSON.parse(localStorage.getItem("favoriteDrinks"));
-  let isFavorite = false;
-  drinks.map((item) => {
-    if (item.idDrink === id) {
-      isFavorite = true;
-    }
-  });
-  return isFavorite;
 };

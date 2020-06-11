@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Grid from "@material-ui/core/Grid";
-
+import Button from "@material-ui/core/Button";
 import Drink from "../components/Drink";
 import { isInFavorite, ingredientsGenerator } from "../utils/functions";
 const useStyles = makeStyles((theme) => ({
@@ -18,28 +18,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SearchResult(props) {
-  console.log(props.drinksList);
+function RandomResult(props) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
+      {props.randomList ? (
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={props.clearRandoms}
+        >
+          CLEAR RANDOMS
+        </Button>
+      ) : (
+        ""
+      )}
       <Grid container spacing={3}>
         <Grid item xs={12} sm={12}>
-          {props.drinksList &&
-            props.drinksList.map((drink, index) => (
-              <Drink
-                key={index}
-                drink={drink}
-                isInFavorite={isInFavorite(props.favoriteList, drink.idDrink)}
-                saveToFavorite={props.saveToFavorite}
-                byIngredients={props.byIngredients}
-                ingredientsArr={ingredientsGenerator(drink)}
-              />
-            ))}
+          {props.randomList.map((drink, index) => (
+            <Drink
+              key={index}
+              drink={drink}
+              isInFavorite={isInFavorite(props.favoriteList, drink.idDrink)}
+              saveToFavorite={props.saveToFavorite}
+              ingredientsArr={ingredientsGenerator(drink)}
+            />
+          ))}
         </Grid>
       </Grid>
     </div>
   );
 }
 
-export default SearchResult;
+export default RandomResult;

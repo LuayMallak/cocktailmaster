@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 import Grid from "@material-ui/core/Grid";
 
@@ -18,21 +19,33 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SearchResult(props) {
-  console.log(props.drinksList);
+function FavoriteList(props) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
+      {props.favoriteList ? (
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={props.clearFavorites}
+        >
+          CLEAR FAVORITES
+        </Button>
+      ) : (
+        ""
+      )}
       <Grid container spacing={3}>
         <Grid item xs={12} sm={12}>
-          {props.drinksList &&
-            props.drinksList.map((drink, index) => (
+          {props.favoriteList &&
+            props.favoriteList.map((drink, index) => (
               <Drink
                 key={index}
                 drink={drink}
-                isInFavorite={isInFavorite(props.favoriteList, drink.idDrink)}
+                isInFavorite={
+                  props.favoriteList &&
+                  isInFavorite(props.favoriteList, drink.idDrink)
+                }
                 saveToFavorite={props.saveToFavorite}
-                byIngredients={props.byIngredients}
                 ingredientsArr={ingredientsGenerator(drink)}
               />
             ))}
@@ -42,4 +55,4 @@ function SearchResult(props) {
   );
 }
 
-export default SearchResult;
+export default FavoriteList;
