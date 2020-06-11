@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/https//luaymallak.github.io/cocktailmaster/static/css/main.96b06d4e.chunk.css",
+    "main.js": "/https//luaymallak.github.io/cocktailmaster/static/js/main.356ed958.chunk.js",
+    "main.js.map": "/https//luaymallak.github.io/cocktailmaster/static/js/main.356ed958.chunk.js.map",
+    "runtime-main.js": "/https//luaymallak.github.io/cocktailmaster/static/js/runtime-main.6fba7036.js",
+    "runtime-main.js.map": "/https//luaymallak.github.io/cocktailmaster/static/js/runtime-main.6fba7036.js.map",
+    "static/js/2.4ac477d0.chunk.js": "/https//luaymallak.github.io/cocktailmaster/static/js/2.4ac477d0.chunk.js",
+    "static/js/2.4ac477d0.chunk.js.map": "/https//luaymallak.github.io/cocktailmaster/static/js/2.4ac477d0.chunk.js.map",
+    "index.html": "/https//luaymallak.github.io/cocktailmaster/index.html",
+    "precache-manifest.77836973691b39e21d1a488031b65fcf.js": "/https//luaymallak.github.io/cocktailmaster/precache-manifest.77836973691b39e21d1a488031b65fcf.js",
+    "service-worker.js": "/https//luaymallak.github.io/cocktailmaster/service-worker.js",
+    "static/css/main.96b06d4e.chunk.css.map": "/https//luaymallak.github.io/cocktailmaster/static/css/main.96b06d4e.chunk.css.map",
+    "static/js/2.4ac477d0.chunk.js.LICENSE.txt": "/https//luaymallak.github.io/cocktailmaster/static/js/2.4ac477d0.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "/https//luaymallak.github.io/cocktailmaster/static/media/multicolor-glass-cocktail-drinks-black-background-hd-wallpapers.1b35ed3a.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6fba7036.js",
+    "static/js/2.4ac477d0.chunk.js",
+    "static/css/main.96b06d4e.chunk.css",
+    "static/js/main.356ed958.chunk.js"
+  ]
+}
