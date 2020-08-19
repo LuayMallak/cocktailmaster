@@ -7,15 +7,10 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
-
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-
 import { ingredientsGenerator, getDataByID } from "../utils/functions";
 
 const useStyles = (theme) => ({
@@ -25,7 +20,7 @@ const useStyles = (theme) => ({
   },
   media: {
     height: "100%",
-    paddingTop: "58.25%", // 16:9
+    paddingTop: "100%",
   },
   expand: {
     transform: "rotate(0deg)",
@@ -50,6 +45,7 @@ class Drink extends React.Component {
       expanded: false,
       isIngredients: this.props.byIngredients,
       ingredientsArr: this.props.ingredientsArr,
+      instructions: this.props.drink.strInstructions,
     };
     this.handleExpandClick = this.handleExpandClick.bind(this);
   }
@@ -60,7 +56,7 @@ class Drink extends React.Component {
 
       let ingredientsArr = ingredientsGenerator(oneDrink.drinks[0]);
       console.log(ingredientsArr);
-      this.setState({ ingredientsArr });
+      this.setState({ ingredientsArr, instructions: oneDrink.strInstructions });
     }
 
     this.setState({ expanded: !this.state.expanded });
@@ -71,11 +67,7 @@ class Drink extends React.Component {
     return (
       <Card className={classes.root}>
         <CardHeader
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
-          }
+          action={<IconButton aria-label="settings"></IconButton>}
           title={this.props.drink.strDrink}
           subheader={this.props.drink.strAlcoholic}
         />
@@ -92,9 +84,6 @@ class Drink extends React.Component {
             color={this.props.isInFavorite ? "secondary" : ""}
           >
             <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
           </IconButton>
           <IconButton
             className={clsx(classes.expand, {
@@ -119,7 +108,7 @@ class Drink extends React.Component {
             </Typography>
             <Typography paragraph>Instructions:</Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              {this.props.drink.strInstructions}
+              {this.state.instructions}
             </Typography>
           </CardContent>
         </Collapse>

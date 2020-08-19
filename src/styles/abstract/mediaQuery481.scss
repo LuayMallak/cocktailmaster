@@ -1,0 +1,32 @@
+@media (min-width: 481px) {
+  .searchSection {
+    width: 100%;
+    top: 7vh;
+    width: 70vw;
+    flex-flow: row nowrap;
+    .randomBTN {
+      width: 20%;
+      margin: 1%;
+      height: 10vh;
+    }
+
+    .searchFieldContainer {
+      width: 75%;
+      height: 10vh;
+      .options {
+        width: 30%;
+      }
+
+      .textInput {
+        width: 65%;
+      }
+      .searchBTN {
+        width: 10%;
+      }
+    }
+  }
+  .homeContainer {
+    margin-top: 40vh;
+    padding-top: 35px;
+  }
+}

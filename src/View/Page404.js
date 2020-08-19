@@ -26,7 +26,7 @@ function Page404(props) {
         color="secondary"
         onClick={props.clearRandoms}
       >
-        <NavLink exact to="/">
+        <NavLink exact to="/cocktailmaster/">
           BACK TO HOMEPAGE
         </NavLink>
       </Button>

@@ -1,0 +1,47 @@
+.searchFieldContainer {
+  display: flex;
+  background-color: transparent;
+  border-radius: 10px;
+  height: 5vh;
+  width: 80%;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  border: 0.05rem solid rgb(245, 137, 194);
+
+  .options {
+    width: 30%;
+    padding: 0.2rem;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    color: white;
+
+    .optionName {
+      background-color: black;
+    }
+  }
+
+  .textInput {
+    width: 60%;
+    padding: 0.2rem;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    color: white;
+  }
+  .searchBTN {
+    width: 10%;
+    padding: 0.2rem;
+    background-color: transparent;
+    border: none;
+    .fa-search {
+      color: white;
+      font-size: 1rem;
+    }
+  }
+  .options,
+  .textInput,
+  .searchBTN:focus {
+    outline: none;
+  }
+}

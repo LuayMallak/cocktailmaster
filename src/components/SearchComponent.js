@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 export class SearchComponent extends Component {
   constructor(props) {
@@ -8,6 +10,13 @@ export class SearchComponent extends Component {
       searchBy: "s",
       inputText: "",
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(evt) {
+    evt.preventDefault();
+    console.log("handle");
+    this.props.saveAPIData(this.state.searchBy, this.state.inputText);
   }
 
   render() {
@@ -23,7 +32,7 @@ export class SearchComponent extends Component {
           className="randomBTN "
           onClick={() => this.props.saveRandomDrink()}
         >
-          <NavLink exact to="/favorite-list">
+          <NavLink exact to="/cocktailmaster/favorite-list">
             {" "}
             Favorites
           </NavLink>
@@ -32,18 +41,24 @@ export class SearchComponent extends Component {
           className="randomBTN "
           onClick={() => this.props.saveRandomDrink()}
         >
-          <NavLink exact to="/random-result">
-            Random Cocktail
+          <NavLink exact to="/cocktailmaster/random-result">
+            Random
           </NavLink>
         </button>
-        <div className="searchFieldContainer">
+        <form className="searchFieldContainer" onSubmit={this.handleSubmit}>
           <select
             className="options"
             onChange={(evt) => this.setState({ searchBy: evt.target.value })}
           >
-            <option value="s">Cocktail Name</option>
-            <option value="f">First Letter</option>
-            <option value="i">Ingredient</option>
+            <option className="optionName" value="s">
+              Name
+            </option>
+            <option className="optionName" value="f">
+              First Letter
+            </option>
+            <option className="optionName" value="i">
+              Ingredient
+            </option>
           </select>
           <input
             type="text"
@@ -52,17 +67,16 @@ export class SearchComponent extends Component {
             className="textInput"
           />
           <button
+            type="submit"
+            onClick={this.handleSubmit}
             className="searchBTN"
-            onClick={() => {
-              this.props.saveAPIData(this.state.searchBy, this.state.inputText);
-            }}
           >
             {" "}
-            <NavLink exact to="/search-result">
-              Search
+            <NavLink exact to="/cocktailmaster/search-result">
+              <FontAwesomeIcon icon={faSearch} />
             </NavLink>
           </button>
-        </div>
+        </form>
       </div>
     );
   }

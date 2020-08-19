@@ -1,0 +1,35 @@
+.searchSection {
+  z-index: 20;
+  margin: auto;
+  position: fixed;
+  top: 3vh;
+  width: 99vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  justify-content: space-around;
+  align-items: center;
+  //height: 15vh;
+  .randomBTN {
+    flex-grow: 1;
+    border-radius: 10px;
+    width: 15%;
+    margin: 5% 10%;
+    font-size: 100%;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+    text-shadow: inherit;
+    font-family: inherit;
+    border: 0.05rem solid rgb(245, 137, 194);
+    height: 4vh;
+    outline: none;
+    a:link,
+    :visited,
+    :hover,
+    :active {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}

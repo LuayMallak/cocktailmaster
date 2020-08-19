@@ -3,12 +3,7 @@ import React from "react";
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      /*       drinks: [],
-      singleDrink:{},
-      searchBy: "s",
-      inputText: "", */
-    };
+    this.state = {};
   }
 
   render() {

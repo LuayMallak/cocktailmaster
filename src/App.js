@@ -41,6 +41,7 @@ class App extends React.Component {
   }
 
   async saveAPIData(searchBy, InputText) {
+    console.log("searchBy");
     try {
       const drinks = await getDataList(searchBy, InputText);
 
@@ -86,6 +87,7 @@ class App extends React.Component {
       <div className="App">
         <BrowserRouter>
           <Route path="/">
+            {" "}
             <SearchComponent
               saveRandomDrink={this.saveRandomDrink}
               saveAPIData={this.saveAPIData}
@@ -93,10 +95,10 @@ class App extends React.Component {
             />
           </Route>
           <Switch>
-            <Route exact path="/">
+            <Route exact path="/cocktailmaster">
               <Home />
             </Route>
-            <Route path="/search-result">
+            <Route path="/cocktailmaster/search-result">
               <SearchResult
                 drinksList={this.state.drinks}
                 favoriteList={this.state.favorites}
@@ -106,7 +108,7 @@ class App extends React.Component {
                 toggleByIngredients={this.toggleByIngredients}
               />
             </Route>
-            <Route path="/random-result">
+            <Route path="/cocktailmaster/random-result">
               <RandomResult
                 randomList={this.state.randoms}
                 favoriteList={this.state.favorites}
@@ -114,7 +116,7 @@ class App extends React.Component {
                 clearRandoms={this.clearRandoms}
               />
             </Route>
-            <Route path="/favorite-list">
+            <Route path="/cocktailmaster/favorite-list">
               <FavoriteList
                 favoriteList={this.state.favorites}
                 saveToFavorite={this.saveToFavorite}
