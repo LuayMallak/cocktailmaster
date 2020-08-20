@@ -8,10 +8,11 @@ import { isInFavorite, ingredientsGenerator } from "../utils/functions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: " 90%",
+    width: " 90vw",
     margin: "auto",
     marginTop: "15vh",
-    backgroundColor: " white",
+    /* backgroundColor: "white", */
+    backgroundColor: "rgba(214, 168, 168, 0.2)",
     //minHeight: " 100vh",
     paddingTop: "2rem",
     borderRadius: "5px",

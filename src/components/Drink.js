@@ -15,12 +15,17 @@ import { ingredientsGenerator, getDataByID } from "../utils/functions";
 
 const useStyles = (theme) => ({
   root: {
-    maxWidth: "90%",
     margin: "2% auto",
+    /* backgroundColor: "rgba(197, 187, 187, 0.3)", */
+    backgroundColor: "rgb(98, 89, 128)",
+    borderRadius: "10px",
   },
   media: {
     height: "100%",
     paddingTop: "100%",
+  },
+  details: {
+    marginLeft: "auto",
   },
   expand: {
     transform: "rotate(0deg)",
@@ -76,7 +81,6 @@ class Drink extends React.Component {
           image={this.props.drink.strDrinkThumb}
           title={this.props.drink.strDrink}
         />
-        <CardContent> </CardContent>
         <CardActions disableSpacing>
           <IconButton
             onClick={() => this.props.saveToFavorite(this.props.drink)}
@@ -85,6 +89,7 @@ class Drink extends React.Component {
           >
             <FavoriteIcon />
           </IconButton>
+          <div className={classes.details}>click for details</div>
           <IconButton
             className={clsx(classes.expand, {
               [classes.expandOpen]: this.state.expanded,

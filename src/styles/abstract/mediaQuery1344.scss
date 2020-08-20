@@ -1,0 +1,24 @@
+@media (min-width: 1344px) {
+  .searchSection {
+    justify-content: center;
+    padding-top: 1vh;
+
+    .randomBTN {
+      max-width: 7%;
+    }
+
+    .searchFieldContainer {
+      width: 40%;
+      .options {
+        width: 12%;
+      }
+
+      .textInput {
+        width: 80%;
+      }
+      .searchBTN {
+        width: 5%;
+      }
+    }
+  }
+}

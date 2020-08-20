@@ -2,10 +2,14 @@
 @import "./styles/layout/root.scss";
 @import "./styles/layout/searchFieldContainer.scss";
 @import "./styles/layout/searchSection.scss";
-
+/* media Queries */
 @import "./styles/abstract/mediaQuery481.scss";
+@import "./styles/abstract/mediaQuery768.scss";
+@import "./styles/abstract/mediaQuery1024.scss";
+@import "./styles/abstract/mediaQuery1344.scss";
+
 body {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 1);
   background-image: linear-gradient(
       rgba(177, 151, 179, 0.1),
       rgba(127, 105, 226, 0.5)
