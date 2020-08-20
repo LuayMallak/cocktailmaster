@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "172d7ce9a9ed9893d9b9f3ef3b24655a",
+    "revision": "4c84d5ed5fdb5e2379dddad117b24f24",
     "url": "/cocktailmaster/index.html"
   },
   {
-    "revision": "d0d18975fc1949194c0c",
-    "url": "/cocktailmaster/static/css/main.411036bc.chunk.css"
+    "revision": "b8219083fbb715f1e2c1",
+    "url": "/cocktailmaster/static/css/main.1fea5278.chunk.css"
   },
   {
-    "revision": "bbc140015b7a1dc1c3cb",
-    "url": "/cocktailmaster/static/js/2.4ac477d0.chunk.js"
+    "revision": "37920a26d72a3c72c2ba",
+    "url": "/cocktailmaster/static/js/2.b38f775c.chunk.js"
   },
   {
     "revision": "0749163b59fbee32225059cb60c18af6",
-    "url": "/cocktailmaster/static/js/2.4ac477d0.chunk.js.LICENSE.txt"
+    "url": "/cocktailmaster/static/js/2.b38f775c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d0d18975fc1949194c0c",
-    "url": "/cocktailmaster/static/js/main.aab2b038.chunk.js"
+    "revision": "b8219083fbb715f1e2c1",
+    "url": "/cocktailmaster/static/js/main.ea03a7c4.chunk.js"
   },
   {
     "revision": "ad5eec5ac348103d30a5",
